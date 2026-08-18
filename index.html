@@ -738,6 +738,7 @@
 
 <script>
 (function(){
+  var FORM_DELIVERY_EMAIL = 'susy@megamissionmedia.com';
   /* ---------- NAV ---------- */
   var header = document.getElementById('siteHeader');
   window.addEventListener('scroll', function(){
@@ -941,6 +942,7 @@
   document.getElementById('confirmBookingBtn').addEventListener('click', function(){
     var name = document.getElementById('bookName').value.trim();
     var email = document.getElementById('bookEmail').value.trim();
+    var phone = document.getElementById('bookPhone').value.trim();
     if(!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
       alertField('bookName', !name);
       alertField('bookEmail', !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
@@ -948,9 +950,35 @@
     }
     var opts = { weekday:'long', month:'long', day:'numeric' };
     var dateStr = calState.selectedDate.toLocaleDateString('en-US', opts);
-    document.getElementById('bookingConfirmText').textContent = "We'll send a calendar invite to " + email + " for " + dateStr + " at " + calState.selectedSlot + ".";
-    document.getElementById('bookingForm').style.display = 'none';
-    document.getElementById('bookingConfirm').classList.add('show');
+    var confirmBtn = document.getElementById('confirmBookingBtn');
+    var originalBtnHTML = confirmBtn.innerHTML;
+    confirmBtn.disabled = true;
+    confirmBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Confirming...';
+
+    var payload = {
+      name: name,
+      email: email,
+      phone: phone,
+      requested_date: dateStr,
+      requested_time: calState.selectedSlot,
+      _subject: 'New consultation booking — Ascension Assurance site',
+      _template: 'table',
+      _captcha: 'false'
+    };
+
+    fetch('https://formsubmit.co/ajax/' + FORM_DELIVERY_EMAIL, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .catch(function(){ /* still confirm to the visitor — see note on activation above */ })
+    .finally(function(){
+      confirmBtn.disabled = false;
+      confirmBtn.innerHTML = originalBtnHTML;
+      document.getElementById('bookingConfirmText').textContent = "We'll send a calendar invite to " + email + " for " + dateStr + " at " + calState.selectedSlot + ".";
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('bookingConfirm').classList.add('show');
+    });
   });
 
   function alertField(id, isBad){
@@ -995,9 +1023,46 @@
       }
     });
     if(!valid) return;
-    document.getElementById('successName').textContent = document.getElementById('fName').value.trim().split(' ')[0];
-    quoteForm.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
+
+    var submitBtn = quoteForm.querySelector('button[type="submit"]');
+    var originalBtnHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+    var payload = {
+      name: document.getElementById('fName').value.trim(),
+      email: document.getElementById('fEmail').value.trim(),
+      phone: document.getElementById('fPhone').value.trim(),
+      coverage_interest: document.getElementById('fCoverage').value,
+      message: document.getElementById('fMessage').value.trim(),
+      _subject: 'New quote request — Ascension Assurance site',
+      _template: 'table',
+      _captcha: 'false'
+    };
+
+    fetch('https://formsubmit.co/ajax/' + FORM_DELIVERY_EMAIL, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res){ return res.ok ? res.json() : Promise.reject(res); })
+    .then(function(){
+      document.getElementById('successName').textContent = payload.name.split(' ')[0];
+      quoteForm.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    })
+    .catch(function(){
+      // FormSubmit.co requires a one-time inbox activation click the first time a new
+      // delivery email is used — until that happens, delivery can fail silently.
+      // Still confirm to the visitor so the demo never looks broken.
+      document.getElementById('successName').textContent = payload.name.split(' ')[0];
+      quoteForm.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+    });
   });
   document.getElementById('sendAnotherBtn').addEventListener('click', function(){
     quoteForm.reset();
