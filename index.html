@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascension Assurance | Insurance That Moves You Forward</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --navy:#0B1F3A;
+    --navy-2:#122A4E;
+    --navy-3:#193563;
+    --charcoal:#16202E;
+    --gold:#D4A94A;
+    --gold-light:#EBCE8B;
+    --gold-dark:#B8893A;
+    --white:#FFFFFF;
+    --offwhite:#F7F5F0;
+    --paper:#FBFAF7;
+    --text-dark:#16202E;
+    --text-muted:#5C6B80;
+    --text-on-navy:#E7ECF5;
+    --text-muted-on-navy:#9FB0C7;
+    --border:#E4E1D8;
+    --good:#2E7D5B;
+    --shadow: 0 20px 45px -20px rgba(11,31,58,0.35);
+    --radius: 18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--text-dark);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    margin:0 0 .5em 0;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  p{line-height:1.65; color:var(--text-muted); margin:0 0 1em 0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  img,svg{display:block; max-width:100%;}
+  button{font-family:inherit; cursor:pointer;}
+  .container{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold-dark);
+    margin-bottom:14px;
+  }
+  .eyebrow.on-navy{color:var(--gold-light);}
+  .eyebrow::before{content:''; width:22px; height:2px; background:var(--gold); display:inline-block;}
+  section{padding:104px 0;}
+  @media(max-width:768px){ section{padding:72px 0;} }
+
+  /* Buttons */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:15px 30px; border-radius:999px; font-weight:700; font-size:.95rem;
+    border:1.5px solid transparent; transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+    white-space:nowrap;
+  }
+  .btn-gold{ background:linear-gradient(135deg,var(--gold-light),var(--gold-dark)); color:var(--navy); box-shadow:0 12px 30px -10px rgba(212,169,74,0.65);}
+  .btn-gold:hover{ transform:translateY(-3px); box-shadow:0 16px 34px -8px rgba(212,169,74,0.8);}
+  .btn-outline{ background:transparent; border-color:rgba(231,236,245,0.4); color:var(--text-on-navy);}
+  .btn-outline:hover{ background:rgba(231,236,245,0.1); border-color:var(--text-on-navy); transform:translateY(-3px);}
+  .btn-navy{ background:var(--navy); color:var(--white);}
+  .btn-navy:hover{ transform:translateY(-3px); box-shadow:var(--shadow);}
+  .btn-block{ width:100%; }
+  .btn:disabled{ opacity:.5; cursor:not-allowed; transform:none !important; box-shadow:none !important;}
+
+  /* Reveal on scroll */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;} .reveal.d4{transition-delay:.32s;}
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    padding:20px 0; transition:background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  header .container{ display:flex; align-items:center; justify-content:space-between; }
+  header.scrolled{ background:rgba(11,31,58,0.92); backdrop-filter:blur(10px); padding:13px 0; box-shadow:0 10px 30px -18px rgba(0,0,0,0.5);}
+  .logo{ display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:700; font-size:1.28rem; color:var(--white);}
+  .logo-mark{
+    width:38px; height:38px; border-radius:11px;
+    background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));
+    display:flex; align-items:center; justify-content:center; color:var(--navy); font-size:1.05rem;
+    box-shadow:0 8px 18px -6px rgba(212,169,74,.7);
+  }
+  nav.main-nav{ display:flex; align-items:center; gap:36px; }
+  nav.main-nav a{ color:var(--text-on-navy); font-size:.9rem; font-weight:600; opacity:.88; transition:opacity .2s ease, color .2s ease; }
+  nav.main-nav a:hover{ opacity:1; color:var(--gold-light); }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .hamburger{ display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px; z-index:1200; }
+  .hamburger span{ width:24px; height:2px; background:var(--white); display:block; transition:transform .3s ease, opacity .3s ease;}
+  .mobile-menu{ position:fixed; inset:0; background:var(--navy); z-index:1100; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; transform:translateY(-100%); transition:transform .4s ease; }
+  .mobile-menu.open{ transform:translateY(0); }
+  .mobile-menu a{ color:var(--white); font-size:1.4rem; font-family:'Fraunces',serif; }
+
+  @media(max-width:900px){
+    nav.main-nav, .nav-cta .btn-outline{ display:none; }
+    .hamburger{ display:flex; }
+  }
+
+  /* HERO */
+  .hero{
+    position:relative; min-height:100vh; display:flex; align-items:center;
+    background:radial-gradient(120% 120% at 15% 0%, var(--navy-3) 0%, var(--navy) 45%, var(--charcoal) 100%);
+    overflow:hidden; padding-top:140px;
+  }
+  .hero-blob{ position:absolute; border-radius:50%; filter:blur(70px); opacity:.35; pointer-events:none; }
+  .hero-blob.b1{ width:480px; height:480px; background:var(--gold); top:-120px; right:-100px; animation:drift1 16s ease-in-out infinite; }
+  .hero-blob.b2{ width:360px; height:360px; background:#3E63A6; bottom:-140px; left:-80px; animation:drift2 20s ease-in-out infinite; }
+  @keyframes drift1{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(-40px,50px) scale(1.12);} }
+  @keyframes drift2{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(30px,-30px) scale(1.08);} }
+  .particles{ position:absolute; inset:0; pointer-events:none; }
+  .particle{ position:absolute; bottom:-20px; width:5px; height:5px; border-radius:50%; background:var(--gold-light); opacity:.7; animation:rise linear infinite; }
+  @keyframes rise{ 0%{ transform:translateY(0) translateX(0); opacity:0; } 10%{ opacity:.85;} 100%{ transform:translateY(-110vh) translateX(var(--drift,20px)); opacity:0; } }
+
+  .hero-inner{ position:relative; z-index:2; display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center; }
+  @media(max-width:960px){ .hero-inner{ grid-template-columns:1fr; text-align:left; } }
+  .hero h1{ font-size:clamp(2.3rem,5vw,3.6rem); color:var(--white); }
+  .hero h1 em{ font-style:normal; color:var(--gold-light); }
+  .hero p.lead{ color:var(--text-muted-on-navy); font-size:1.1rem; max-width:540px; }
+  .hero-cta{ display:flex; gap:16px; flex-wrap:wrap; margin-top:8px; }
+
+  .hero-card{
+    background:rgba(255,255,255,0.06); border:1px solid rgba(231,236,245,0.14);
+    border-radius:22px; padding:28px; backdrop-filter:blur(6px);
+  }
+  .hero-card h4{ color:var(--white); font-size:1.05rem; margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+  .hero-card h4 i{ color:var(--gold-light); }
+  .mini-quote-row{ display:flex; flex-direction:column; gap:10px; }
+  .mini-select, .mini-input{
+    width:100%; padding:13px 16px; border-radius:11px; border:1px solid rgba(231,236,245,0.22);
+    background:rgba(255,255,255,0.06); color:var(--white); font-size:.92rem; outline:none;
+  }
+  .mini-select option{ color:var(--charcoal); }
+  .mini-select:focus, .mini-input:focus{ border-color:var(--gold); }
+  .mini-input::placeholder{ color:var(--text-muted-on-navy); }
+
+  /* STATS */
+  .stats-bar{ position:relative; z-index:2; margin-top:64px; display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid rgba(231,236,245,0.14); padding-top:34px; }
+  @media(max-width:960px){ .stats-bar{ grid-template-columns:repeat(2,1fr); row-gap:28px; } }
+  .stat{ text-align:left; padding-right:20px; }
+  .stat .num{ font-family:'Fraunces',serif; font-size:2.1rem; font-weight:700; color:var(--gold-light); }
+  .stat .label{ color:var(--text-muted-on-navy); font-size:.82rem; letter-spacing:.03em; }
+
+  /* SECTION HEAD */
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .section-head h2{ font-size:clamp(1.8rem,3.4vw,2.5rem); }
+
+  /* COVERAGE GRID */
+  .coverage-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  @media(max-width:960px){ .coverage-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:560px){ .coverage-grid{ grid-template-columns:1fr; } }
+  .coverage-card{
+    background:var(--white); border:1px solid var(--border); border-radius:var(--radius);
+    padding:30px 26px; position:relative; transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .coverage-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow); border-color:transparent; }
+  .coverage-card.featured{ border-color:var(--gold); background:linear-gradient(180deg,#FFFDF7,#FFFFFF); }
+  .badge{
+    position:absolute; top:-11px; right:20px; background:var(--gold); color:var(--navy);
+    font-size:.66rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    padding:5px 11px; border-radius:999px; box-shadow:0 6px 14px -6px rgba(212,169,74,.8);
+  }
+  .cov-icon{
+    width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,var(--navy-3),var(--navy)); color:var(--gold-light); font-size:1.25rem; margin-bottom:18px;
+  }
+  .coverage-card h3{ font-size:1.12rem; margin-bottom:8px; }
+  .coverage-card p{ font-size:.9rem; margin-bottom:16px; }
+  .cov-link{ font-size:.82rem; font-weight:700; color:var(--navy); display:inline-flex; align-items:center; gap:6px; }
+  .cov-link i{ font-size:.72rem; transition:transform .2s ease; }
+  .coverage-card:hover .cov-link i{ transform:translateX(4px); }
+
+  /* WHY US */
+  .why-section{ background:var(--offwhite); }
+  .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:26px; }
+  @media(max-width:960px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:560px){ .why-grid{ grid-template-columns:1fr; } }
+  .why-card{ text-align:left; }
+  .why-icon{
+    width:56px; height:56px; border-radius:50%; background:var(--white); border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center; color:var(--gold-dark); font-size:1.3rem; margin-bottom:18px;
+  }
+  .why-card h4{ font-size:1.05rem; margin-bottom:8px; }
+  .why-card p{ font-size:.9rem; }
+
+  /* TESTIMONIALS */
+  .testimonial-wrap{ position:relative; max-width:760px; margin:0 auto; text-align:center; }
+  .testimonial{ display:none; }
+  .testimonial.active{ display:block; animation:fadeIn .6s ease; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+  .testimonial i.fa-quote-left{ color:var(--gold); font-size:1.6rem; margin-bottom:18px; }
+  .testimonial p.quote{ font-family:'Fraunces',serif; font-size:1.35rem; color:var(--navy); line-height:1.5; margin-bottom:18px; }
+  .testimonial .who{ font-weight:700; color:var(--text-dark); font-size:.9rem; }
+  .testimonial .role{ color:var(--text-muted); font-size:.82rem; }
+  .dots{ display:flex; justify-content:center; gap:9px; margin-top:30px; }
+  .dot{ width:9px; height:9px; border-radius:50%; background:var(--border); border:none; padding:0; transition:background .3s ease, transform .3s ease; }
+  .dot.active{ background:var(--gold); transform:scale(1.3); }
+
+  /* BOOKING */
+  .booking-section{ background:linear-gradient(180deg,var(--navy) 0%, var(--charcoal) 100%); color:var(--white); }
+  .booking-section .section-head h2, .booking-section .section-head p{ color:var(--white); }
+  .booking-section .section-head p{ color:var(--text-muted-on-navy); }
+  .booking-wrap{ background:rgba(255,255,255,0.05); border:1px solid rgba(231,236,245,0.14); border-radius:24px; padding:36px; display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  @media(max-width:860px){ .booking-wrap{ grid-template-columns:1fr; } }
+  .cal-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+  .cal-head h4{ color:var(--white); margin:0; font-size:1.05rem; }
+  .cal-nav{ display:flex; gap:8px; }
+  .cal-nav button{ width:32px; height:32px; border-radius:9px; border:1px solid rgba(231,236,245,0.22); background:transparent; color:var(--white); }
+  .cal-nav button:hover{ background:rgba(255,255,255,0.1); }
+  .cal-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-bottom:8px; }
+  .cal-dow{ text-align:center; font-size:.68rem; color:var(--text-muted-on-navy); padding-bottom:6px; }
+  .cal-day{
+    aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; border-radius:9px;
+    font-size:.85rem; color:var(--text-on-navy); background:rgba(255,255,255,0.03); border:1px solid transparent; cursor:pointer;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .cal-day.disabled{ color:rgba(159,176,199,0.35); cursor:not-allowed; }
+  .cal-day.empty{ background:transparent; cursor:default; }
+  .cal-day:not(.disabled):not(.empty):hover{ border-color:var(--gold); }
+  .cal-day.selected{ background:var(--gold); color:var(--navy); font-weight:700; }
+  .slots{ margin-top:20px; }
+  .slots h5{ color:var(--text-muted-on-navy); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:12px; font-weight:700; }
+  .slot-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .slot-btn{ padding:10px 6px; border-radius:9px; border:1px solid rgba(231,236,245,0.22); background:rgba(255,255,255,0.03); color:var(--white); font-size:.8rem; }
+  .slot-btn:hover{ border-color:var(--gold); }
+  .slot-btn.selected{ background:var(--gold); color:var(--navy); border-color:var(--gold); font-weight:700; }
+  .booking-form label, .form-field label{ display:block; font-size:.78rem; color:var(--text-muted-on-navy); margin-bottom:6px; font-weight:600; }
+  .booking-form input{ width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(231,236,245,0.22); background:rgba(255,255,255,0.05); color:var(--white); margin-bottom:14px; outline:none; }
+  .booking-form input:focus{ border-color:var(--gold); }
+  .booking-confirm{ display:none; text-align:center; padding:20px 0; }
+  .booking-confirm.show{ display:block; }
+  .booking-confirm .check{ width:64px; height:64px; border-radius:50%; background:var(--gold); color:var(--navy); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 18px; }
+  .booking-confirm h4{ color:var(--white); margin-bottom:8px; }
+  .booking-confirm p{ color:var(--text-muted-on-navy); font-size:.9rem; }
+
+  /* CONTACT FORM */
+  .contact-section{ background:var(--offwhite); }
+  .contact-wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:50px; align-items:start; }
+  @media(max-width:900px){ .contact-wrap{ grid-template-columns:1fr; } }
+  .contact-info-card{ background:var(--navy); color:var(--white); border-radius:22px; padding:34px; }
+  .contact-info-card h3{ color:var(--white); }
+  .contact-row{ display:flex; gap:14px; align-items:flex-start; margin-bottom:20px; }
+  .contact-row i{ width:38px; height:38px; border-radius:10px; background:rgba(231,236,245,0.1); display:flex; align-items:center; justify-content:center; color:var(--gold-light); flex-shrink:0; }
+  .contact-row .t{ font-weight:700; font-size:.88rem; color:var(--white); }
+  .contact-row .d{ font-size:.83rem; color:var(--text-muted-on-navy); }
+
+  .card-form{ background:var(--white); border:1px solid var(--border); border-radius:22px; padding:36px; }
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media(max-width:560px){ .form-grid{ grid-template-columns:1fr; } }
+  .form-field{ margin-bottom:18px; }
+  .form-field input, .form-field select, .form-field textarea{
+    width:100%; padding:13px 15px; border-radius:11px; border:1px solid var(--border); font-family:inherit; font-size:.92rem; outline:none; background:var(--paper);
+    transition:border-color .2s ease;
+  }
+  .form-field label{ color:var(--text-muted); }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{ border-color:var(--gold); }
+  .form-field textarea{ resize:vertical; min-height:100px; }
+  .form-error{ color:#B4432E; font-size:.76rem; margin-top:5px; display:none; }
+  .form-field.error input, .form-field.error select, .form-field.error textarea{ border-color:#B4432E; }
+  .form-field.error .form-error{ display:block; }
+  .form-success{ display:none; text-align:center; padding:30px 10px; }
+  .form-success.show{ display:block; }
+  .form-success .check{ width:64px; height:64px; border-radius:50%; background:var(--good); color:var(--white); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin:0 auto 18px; }
+
+  /* FOOTER */
+  footer{ background:var(--charcoal); color:var(--text-muted-on-navy); padding:70px 0 26px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px; }
+  @media(max-width:800px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  @media(max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
+  footer h5{ color:var(--white); font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:18px; }
+  footer ul li{ margin-bottom:11px; font-size:.87rem; }
+  footer ul li a:hover{ color:var(--gold-light); }
+  .footer-social{ display:flex; gap:10px; margin-top:20px; }
+  .footer-social a{ width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:center; }
+  .footer-social a:hover{ background:var(--gold); color:var(--navy); }
+  .footer-bottom{ border-top:1px solid rgba(255,255,255,0.08); padding-top:24px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; font-size:.78rem; }
+  .footer-disclaimer{ max-width:820px; font-size:.74rem; opacity:.65; margin-top:14px; }
+
+  /* CHATBOT */
+  .chat-launcher{
+    position:fixed; bottom:26px; right:26px; z-index:1300;
+    width:62px; height:62px; border-radius:50%; background:linear-gradient(135deg,var(--gold-light),var(--gold-dark));
+    display:flex; align-items:center; justify-content:center; color:var(--navy); font-size:1.4rem; border:none;
+    box-shadow:0 14px 30px -10px rgba(212,169,74,.75); transition:transform .25s ease;
+  }
+  .chat-launcher:hover{ transform:scale(1.08); }
+  .chat-badge{
+    position:absolute; top:-4px; right:-4px; background:#D64545; color:#fff; font-size:.68rem; font-weight:700;
+    width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    animation:bounce 2.2s ease infinite;
+  }
+  @keyframes bounce{ 0%,20%,100%{ transform:translateY(0);} 10%{ transform:translateY(-4px);} }
+
+  .chat-panel{
+    position:fixed; bottom:104px; right:26px; width:360px; max-width:calc(100vw - 40px); height:500px; max-height:calc(100vh - 150px);
+    background:var(--white); border-radius:20px; box-shadow:0 30px 60px -20px rgba(11,31,58,.5); z-index:1300;
+    display:flex; flex-direction:column; overflow:hidden; transform:translateY(20px) scale(.97); opacity:0; pointer-events:none;
+    transition:transform .3s ease, opacity .3s ease;
+  }
+  .chat-panel.open{ transform:translateY(0) scale(1); opacity:1; pointer-events:auto; }
+  .chat-head{ background:var(--navy); color:var(--white); padding:16px 18px; display:flex; align-items:center; gap:12px; }
+  .chat-avatar{ width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,var(--gold-light),var(--gold-dark)); display:flex; align-items:center; justify-content:center; color:var(--navy); font-weight:700; }
+  .chat-head .name{ font-weight:700; font-size:.92rem; }
+  .chat-head .status{ font-size:.72rem; color:var(--text-muted-on-navy); display:flex; align-items:center; gap:5px; }
+  .chat-head .status::before{ content:''; width:7px; height:7px; border-radius:50%; background:#4CD07A; }
+  .chat-close{ margin-left:auto; background:none; border:none; color:var(--white); font-size:1.1rem; opacity:.8; }
+  .chat-close:hover{ opacity:1; }
+  .chat-body{ flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:12px; background:var(--offwhite); }
+  .msg{ max-width:82%; padding:11px 14px; border-radius:14px; font-size:.86rem; line-height:1.45; }
+  .msg.bot{ background:var(--white); border:1px solid var(--border); align-self:flex-start; border-bottom-left-radius:4px; }
+  .msg.user{ background:var(--navy); color:var(--white); align-self:flex-end; border-bottom-right-radius:4px; }
+  .quick-replies{ display:flex; flex-wrap:wrap; gap:8px; align-self:flex-start; max-width:100%; }
+  .qr-btn{ background:var(--white); border:1px solid var(--gold); color:var(--gold-dark); font-size:.78rem; font-weight:700; padding:8px 13px; border-radius:999px; }
+  .qr-btn:hover{ background:var(--gold); color:var(--navy); }
+  .typing{ align-self:flex-start; background:var(--white); border:1px solid var(--border); padding:12px 16px; border-radius:14px; border-bottom-left-radius:4px; display:flex; gap:4px; }
+  .typing span{ width:6px; height:6px; border-radius:50%; background:#9FB0C7; animation:typing 1.2s infinite; }
+  .typing span:nth-child(2){ animation-delay:.2s;} .typing span:nth-child(3){ animation-delay:.4s;}
+  @keyframes typing{ 0%,60%,100%{ transform:translateY(0); opacity:.5;} 30%{ transform:translateY(-4px); opacity:1;} }
+  .chat-input-row{ display:flex; gap:8px; padding:14px; border-top:1px solid var(--border); background:var(--white); }
+  .chat-input-row input{ flex:1; border:1px solid var(--border); border-radius:999px; padding:11px 16px; font-size:.86rem; outline:none; font-family:inherit; }
+  .chat-input-row input:focus{ border-color:var(--gold); }
+  .chat-send{ width:42px; height:42px; border-radius:50%; background:var(--navy); color:var(--white); border:none; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .chat-send:hover{ background:var(--gold); color:var(--navy); }
+
+  @media(max-width:480px){
+    .chat-panel{ right:14px; left:14px; width:auto; bottom:96px; }
+    .chat-launcher{ right:18px; bottom:18px; }
+  }
+
+  ::selection{ background:var(--gold-light); color:var(--navy); }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo">
+      <span class="logo-mark"><i class="fa-solid fa-angles-up"></i></span>
+      Ascension Assurance
+    </a>
+    <nav class="main-nav">
+      <a href="#coverage">Coverage</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#book">Book a Call</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-outline">Get a Quote</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#coverage">Coverage</a>
+  <a href="#why">Why Us</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#book">Book a Call</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="particles" id="particles"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow on-navy">A Modern Insurance Partner</div>
+        <h1>Insurance That Moves<br><em>You Forward.</em></h1>
+        <p class="lead">From protecting your business to securing your family's future, Ascension Assurance builds coverage that rises to meet you — wherever you're headed next.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-file-signature"></i> Get a Free Quote</a>
+          <a href="#book" class="btn btn-outline"><i class="fa-regular fa-calendar"></i> Book a Consultation</a>
+        </div>
+        <div class="stats-bar">
+          <div class="stat"><div class="num" data-count="15" data-suffix="+">0</div><div class="label">Years Serving Clients</div></div>
+          <div class="stat"><div class="num" data-count="2400" data-suffix="+">0</div><div class="label">Businesses &amp; Families Protected</div></div>
+          <div class="stat"><div class="num" data-count="38" data-prefix="$" data-suffix="M+">0</div><div class="label">In Claims Paid</div></div>
+          <div class="stat"><div class="num" data-count="98" data-suffix="%">0</div><div class="label">Client Satisfaction</div></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h4><i class="fa-solid fa-bolt"></i> Start a Quick Quote</h4>
+        <div class="mini-quote-row">
+          <select class="mini-select" id="heroCoverageSelect">
+            <option value="">What are you insuring?</option>
+            <option>Business &amp; Commercial</option>
+            <option>Property &amp; Casualty</option>
+            <option>Life Insurance</option>
+            <option>Health Insurance</option>
+            <option>Annuities</option>
+            <option>Disability Insurance</option>
+            <option>Long-Term Care</option>
+            <option>Umbrella &amp; Liability</option>
+          </select>
+          <input class="mini-input" type="text" placeholder="ZIP code" id="heroZip">
+          <button class="btn btn-gold btn-block" id="heroQuoteBtn" type="button"><i class="fa-solid fa-arrow-right"></i> See My Options</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="coverage">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Coverage</div>
+      <h2>One partner, every line of protection.</h2>
+      <p>We lead with three core lines — and round out the full picture with everything else your life and business need covered.</p>
+    </div>
+    <div class="coverage-grid">
+      <div class="coverage-card featured reveal d1">
+        <span class="badge">Core Focus</span>
+        <div class="cov-icon"><i class="fa-solid fa-briefcase"></i></div>
+        <h3>Business &amp; Commercial</h3>
+        <p>Coverage for your operations, employees, and assets — built to scale as your business grows.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="coverage-card featured reveal d2">
+        <span class="badge">Core Focus</span>
+        <div class="cov-icon"><i class="fa-solid fa-house-chimney"></i></div>
+        <h3>Property &amp; Casualty</h3>
+        <p>Comprehensive protection for your home, auto, and property against the unexpected.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="coverage-card featured reveal d3">
+        <span class="badge">Core Focus</span>
+        <div class="cov-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h3>Life Insurance</h3>
+        <p>Term, whole, and universal life plans that secure your family's financial future.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="coverage-card reveal d4">
+        <div class="cov-icon"><i class="fa-solid fa-suitcase-medical"></i></div>
+        <h3>Health Insurance</h3>
+        <p>Individual, family, and Medicare supplement plans tailored to your needs.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="coverage-card reveal">
+        <div class="cov-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        <h3>Annuities</h3>
+        <p>Fixed, variable, and indexed annuities that turn savings into reliable income.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="coverage-card reveal d1">
+        <div class="cov-icon"><i class="fa-solid fa-user-shield"></i></div>
+        <h3>Disability Insurance</h3>
+        <p>Income protection when illness or injury keeps you out of work.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="coverage-card reveal d2">
+        <div class="cov-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <h3>Long-Term Care</h3>
+        <p>Plan ahead for extended care needs without depleting your savings.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="coverage-card reveal d3">
+        <div class="cov-icon"><i class="fa-solid fa-umbrella"></i></div>
+        <h3>Umbrella &amp; Liability</h3>
+        <p>Extra liability protection layered above your existing policies.</p>
+        <a class="cov-link" href="#contact">Explore coverage <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="why-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Why Ascension</div>
+      <h2>Built to feel like a partner, not a policy number.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <div class="why-icon"><i class="fa-solid fa-award"></i></div>
+        <h4>Licensed Experts</h4>
+        <p>Decades of combined experience across every line we write, in plain language.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h4>Fast, Fair Claims</h4>
+        <p>We advocate for you when it matters most, with a track record of quick resolution.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
+        <h4>Plans Built Around You</h4>
+        <p>No cookie-cutter policies — every plan is shaped around your goals and risk.</p>
+      </div>
+      <div class="why-card reveal d4">
+        <div class="why-icon"><i class="fa-solid fa-comments"></i></div>
+        <h4>Always Reachable</h4>
+        <p>Chat with us, book a call, or send a message — support is never far away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Reviews</div>
+      <h2>Trusted by businesses and families alike.</h2>
+    </div>
+    <div class="testimonial-wrap reveal">
+      <div class="testimonial active">
+        <i class="fa-solid fa-quote-left"></i>
+        <p class="quote">"Ascension helped us bundle our commercial and property policies and saved us over $6,000 a year without cutting coverage."</p>
+        <div class="who">Marcus T.</div>
+        <div class="role">Small Business Owner</div>
+      </div>
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left"></i>
+        <p class="quote">"They walked my family through our life insurance options without any pressure. We finally have a plan we actually understand."</p>
+        <div class="who">Danielle R.</div>
+        <div class="role">Policyholder</div>
+      </div>
+      <div class="testimonial">
+        <i class="fa-solid fa-quote-left"></i>
+        <p class="quote">"Claims can be a nightmare. Ascension made ours painless — approved and paid within two weeks of filing."</p>
+        <div class="who">James O.</div>
+        <div class="role">Commercial Client</div>
+      </div>
+      <div class="dots" id="testimonialDots">
+        <button class="dot active" data-i="0"></button>
+        <button class="dot" data-i="1"></button>
+        <button class="dot" data-i="2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="book" class="booking-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow on-navy">Book a Call</div>
+      <h2>Talk to a licensed advisor — free, no obligation.</h2>
+      <p>Pick a day and time that works for you. We'll confirm by email.</p>
+    </div>
+    <div class="booking-wrap reveal">
+      <div class="cal-col">
+        <div class="cal-head">
+          <h4 id="calMonthLabel">Month</h4>
+          <div class="cal-nav">
+            <button id="calPrev" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="calNext" type="button"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="cal-grid" id="calDow"></div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="slots" id="slotsWrap" style="display:none;">
+          <h5 id="slotsLabel">Available Times</h5>
+          <div class="slot-grid" id="slotGrid"></div>
+        </div>
+      </div>
+      <div>
+        <div class="booking-form" id="bookingForm" style="display:none;">
+          <label>Full Name</label>
+          <input type="text" id="bookName" placeholder="Jane Smith">
+          <label>Email Address</label>
+          <input type="email" id="bookEmail" placeholder="jane@email.com">
+          <label>Phone (optional)</label>
+          <input type="tel" id="bookPhone" placeholder="(555) 123-4567">
+          <button class="btn btn-gold btn-block" id="confirmBookingBtn" type="button"><i class="fa-solid fa-check"></i> Confirm Booking</button>
+        </div>
+        <div class="booking-confirm" id="bookingConfirm">
+          <div class="check"><i class="fa-solid fa-check"></i></div>
+          <h4>You're all set!</h4>
+          <p id="bookingConfirmText"></p>
+          <button class="btn btn-outline" id="bookAnotherBtn" type="button" style="margin-top:18px;">Book Another Time</button>
+        </div>
+        <div id="bookingPlaceholder" style="color:var(--text-muted-on-navy); font-size:.9rem; padding-top:10px;">
+          <i class="fa-regular fa-hand-pointer" style="color:var(--gold-light); margin-right:8px;"></i>
+          Select a date on the calendar, then choose a time slot to continue.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Get a Quote</div>
+      <h2>Tell us a bit about what you need covered.</h2>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-info-card reveal">
+        <h3>Let's talk.</h3>
+        <p style="color:var(--text-muted-on-navy);">Reach out directly, or use the form and we'll respond within one business day.</p>
+        <div class="contact-row"><i class="fa-solid fa-phone"></i><div><div class="t">(555) 010-2024</div><div class="d">Mon–Fri, 8am–6pm CT</div></div></div>
+        <div class="contact-row"><i class="fa-solid fa-envelope"></i><div><div class="t">hello@ascensionassurance.com</div><div class="d">We reply within 1 business day</div></div></div>
+        <div class="contact-row"><i class="fa-solid fa-location-dot"></i><div><div class="t">120 Ascension Way, Suite 400</div><div class="d">Austin, TX 78701</div></div></div>
+        <div class="contact-row"><i class="fa-solid fa-comments"></i><div><div class="t">Live Chat</div><div class="d">Click the chat bubble anytime</div></div></div>
+      </div>
+      <div class="card-form reveal d1">
+        <form id="quoteForm" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>Full Name</label>
+              <input type="text" id="fName" placeholder="Jane Smith">
+              <div class="form-error">Please enter your name.</div>
+            </div>
+            <div class="form-field">
+              <label>Email Address</label>
+              <input type="email" id="fEmail" placeholder="jane@email.com">
+              <div class="form-error">Please enter a valid email.</div>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>Phone</label>
+              <input type="tel" id="fPhone" placeholder="(555) 123-4567">
+              <div class="form-error">Please enter a phone number.</div>
+            </div>
+            <div class="form-field">
+              <label>Coverage Interest</label>
+              <select id="fCoverage">
+                <option value="">Select one</option>
+                <option>Business &amp; Commercial</option>
+                <option>Property &amp; Casualty</option>
+                <option>Life Insurance</option>
+                <option>Health Insurance</option>
+                <option>Annuities</option>
+                <option>Disability Insurance</option>
+                <option>Long-Term Care</option>
+                <option>Umbrella &amp; Liability</option>
+                <option>Not sure yet</option>
+              </select>
+              <div class="form-error">Please select a coverage type.</div>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Message (optional)</label>
+            <textarea id="fMessage" placeholder="Tell us a bit more about what you're looking for..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-navy btn-block"><i class="fa-solid fa-paper-plane"></i> Send My Info</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="check"><i class="fa-solid fa-check"></i></div>
+          <h4>Thanks, <span id="successName">there</span>!</h4>
+          <p>A licensed advisor will reach out within one business day.</p>
+          <button class="btn btn-outline" id="sendAnotherBtn" type="button">Send Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo" style="color:var(--white); margin-bottom:14px;">
+          <span class="logo-mark"><i class="fa-solid fa-angles-up"></i></span>
+          Ascension Assurance
+        </a>
+        <p style="color:var(--text-muted-on-navy); max-width:280px; font-size:.87rem;">Insurance that moves you forward — for your business, your home, and your family.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5>Coverage</h5>
+        <ul>
+          <li><a href="#coverage">Business &amp; Commercial</a></li>
+          <li><a href="#coverage">Property &amp; Casualty</a></li>
+          <li><a href="#coverage">Life Insurance</a></li>
+          <li><a href="#coverage">Health Insurance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#why">Why Ascension</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#book">Book a Call</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li>(555) 010-2024</li>
+          <li>hello@ascensionassurance.com</li>
+          <li>Austin, TX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Ascension Assurance. All rights reserved.</span>
+      <span>Licensed in all 50 states (concept).</span>
+    </div>
+    <div class="footer-disclaimer">This site is a concept demonstration built to showcase web design and interactive features. Ascension Assurance is not currently a licensed insurance provider, and no information submitted here is processed or stored.</div>
+  </div>
+</footer>
+
+<button class="chat-launcher" id="chatLauncher" aria-label="Open chat">
+  <i class="fa-solid fa-comment-dots" id="chatIcon"></i>
+  <span class="chat-badge" id="chatBadge">1</span>
+</button>
+
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-avatar">A</div>
+    <div>
+      <div class="name">Ava · Ascension Assistant</div>
+      <div class="status">Online now</div>
+    </div>
+    <button class="chat-close" id="chatCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Type a message...">
+    <button class="chat-send" id="chatSendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ---------- NAV ---------- */
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function(){
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  });
+
+  /* ---------- PARTICLES ---------- */
+  var pWrap = document.getElementById('particles');
+  for(var i=0;i<24;i++){
+    var d = document.createElement('div');
+    d.className = 'particle';
+    var left = Math.random()*100;
+    var dur = 9 + Math.random()*10;
+    var delay = Math.random()*12;
+    var drift = (Math.random()*60-30)+'px';
+    d.style.left = left+'%';
+    d.style.setProperty('--drift', drift);
+    d.style.animationDuration = dur+'s';
+    d.style.animationDelay = delay+'s';
+    pWrap.appendChild(d);
+  }
+
+  /* ---------- REVEAL ON SCROLL ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:.1, rootMargin:'0px 0px -5% 0px'});
+  revealEls.forEach(function(el){ io.observe(el); });
+  // Safety net: if a browser jumps straight to an anchor (reduced-motion settings,
+  // a direct #hash link, or fast keyboard/hash navigation) sections can be skipped
+  // over without ever intersecting the viewport. Never leave content permanently
+  // invisible — force-reveal everything shortly after load and on any hash jump.
+  function revealAll(){ revealEls.forEach(function(el){ el.classList.add('in-view'); }); }
+  window.addEventListener('hashchange', revealAll);
+  setTimeout(revealAll, 3500);
+
+  /* ---------- STAT COUNTERS ---------- */
+  var stats = document.querySelectorAll('.stat .num');
+  var statsIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        animateCount(entry.target);
+        statsIo.unobserve(entry.target);
+      }
+    });
+  },{threshold:.4});
+  stats.forEach(function(s){ statsIo.observe(s); });
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1600;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts-start)/dur, 1);
+      var eased = 1 - Math.pow(1-progress, 3);
+      var val = Math.floor(eased * target);
+      el.textContent = prefix + val.toLocaleString() + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target.toLocaleString() + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ---------- TESTIMONIAL CAROUSEL ---------- */
+  var testimonials = document.querySelectorAll('.testimonial');
+  var dots = document.querySelectorAll('.dot');
+  var tIndex = 0;
+  function showTestimonial(i){
+    testimonials.forEach(function(t,idx){ t.classList.toggle('active', idx===i); });
+    dots.forEach(function(d,idx){ d.classList.toggle('active', idx===i); });
+    tIndex = i;
+  }
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ showTestimonial(parseInt(d.getAttribute('data-i'))); resetAutoRotate(); });
+  });
+  var autoRotate = setInterval(function(){ showTestimonial((tIndex+1)%testimonials.length); }, 6000);
+  function resetAutoRotate(){ clearInterval(autoRotate); autoRotate = setInterval(function(){ showTestimonial((tIndex+1)%testimonials.length); }, 6000); }
+
+  /* ---------- HERO MINI QUOTE ---------- */
+  document.getElementById('heroQuoteBtn').addEventListener('click', function(){
+    var cov = document.getElementById('heroCoverageSelect').value;
+    var coverageSelect = document.getElementById('fCoverage');
+    if(cov && coverageSelect){ coverageSelect.value = cov; }
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  });
+
+  /* ================= BOOKING CALENDAR ================= */
+  var calState = { viewDate: new Date(), selectedDate: null, selectedSlot: null };
+  var dowNames = ['S','M','T','W','T','F','S'];
+  var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var calDow = document.getElementById('calDow');
+  dowNames.forEach(function(n){
+    var el = document.createElement('div');
+    el.className = 'cal-dow';
+    el.textContent = n;
+    calDow.appendChild(el);
+  });
+
+  function todayAtMidnight(){
+    var t = new Date();
+    t.setHours(0,0,0,0);
+    return t;
+  }
+
+  function renderCalendar(){
+    var grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    var view = calState.viewDate;
+    document.getElementById('calMonthLabel').textContent = monthNames[view.getMonth()] + ' ' + view.getFullYear();
+    var firstDay = new Date(view.getFullYear(), view.getMonth(), 1);
+    var startOffset = firstDay.getDay();
+    var daysInMonth = new Date(view.getFullYear(), view.getMonth()+1, 0).getDate();
+    var today = todayAtMidnight();
+
+    for(var i=0;i<startOffset;i++){
+      var empty = document.createElement('div');
+      empty.className = 'cal-day empty';
+      grid.appendChild(empty);
+    }
+    for(var day=1; day<=daysInMonth; day++){
+      var cellDate = new Date(view.getFullYear(), view.getMonth(), day);
+      var cell = document.createElement('div');
+      cell.className = 'cal-day';
+      cell.textContent = day;
+      var isPast = cellDate < today;
+      var isWeekend = cellDate.getDay()===0 || cellDate.getDay()===6;
+      if(isPast || isWeekend){
+        cell.classList.add('disabled');
+      } else {
+        cell.addEventListener('click', function(dt, el){
+          return function(){ selectDate(dt, el); };
+        }(cellDate, cell));
+      }
+      if(calState.selectedDate && cellDate.getTime()===calState.selectedDate.getTime()){
+        cell.classList.add('selected');
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function selectDate(date, el){
+    document.querySelectorAll('.cal-day').forEach(function(c){ c.classList.remove('selected'); });
+    el.classList.add('selected');
+    calState.selectedDate = date;
+    calState.selectedSlot = null;
+    document.getElementById('slotsWrap').style.display = 'block';
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('bookingPlaceholder').style.display = 'block';
+    var opts = { weekday:'long', month:'long', day:'numeric' };
+    document.getElementById('slotsLabel').textContent = 'Available Times — ' + date.toLocaleDateString('en-US', opts);
+    renderSlots();
+  }
+
+  function renderSlots(){
+    var slotGrid = document.getElementById('slotGrid');
+    slotGrid.innerHTML = '';
+    var times = ['9:00 AM','10:30 AM','1:00 PM','2:30 PM','4:00 PM'];
+    times.forEach(function(t){
+      var btn = document.createElement('button');
+      btn.className = 'slot-btn';
+      btn.type = 'button';
+      btn.textContent = t;
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.slot-btn').forEach(function(b){ b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        calState.selectedSlot = t;
+        document.getElementById('bookingForm').style.display = 'block';
+        document.getElementById('bookingPlaceholder').style.display = 'none';
+      });
+      slotGrid.appendChild(btn);
+    });
+  }
+
+  document.getElementById('calPrev').addEventListener('click', function(){
+    var v = calState.viewDate;
+    var candidate = new Date(v.getFullYear(), v.getMonth()-1, 1);
+    var thisMonth = new Date(todayAtMidnight().getFullYear(), todayAtMidnight().getMonth(), 1);
+    if(candidate >= thisMonth){ calState.viewDate = candidate; renderCalendar(); }
+  });
+  document.getElementById('calNext').addEventListener('click', function(){
+    var v = calState.viewDate;
+    calState.viewDate = new Date(v.getFullYear(), v.getMonth()+1, 1);
+    renderCalendar();
+  });
+
+  document.getElementById('confirmBookingBtn').addEventListener('click', function(){
+    var name = document.getElementById('bookName').value.trim();
+    var email = document.getElementById('bookEmail').value.trim();
+    if(!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      alertField('bookName', !name);
+      alertField('bookEmail', !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+      return;
+    }
+    var opts = { weekday:'long', month:'long', day:'numeric' };
+    var dateStr = calState.selectedDate.toLocaleDateString('en-US', opts);
+    document.getElementById('bookingConfirmText').textContent = "We'll send a calendar invite to " + email + " for " + dateStr + " at " + calState.selectedSlot + ".";
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('bookingConfirm').classList.add('show');
+  });
+
+  function alertField(id, isBad){
+    var el = document.getElementById(id);
+    el.style.borderColor = isBad ? '#B4432E' : 'rgba(231,236,245,0.22)';
+  }
+
+  document.getElementById('bookAnotherBtn').addEventListener('click', function(){
+    document.getElementById('bookingConfirm').classList.remove('show');
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('slotsWrap').style.display = 'none';
+    document.getElementById('bookingPlaceholder').style.display = 'block';
+    document.getElementById('bookName').value = '';
+    document.getElementById('bookEmail').value = '';
+    document.getElementById('bookPhone').value = '';
+    document.querySelectorAll('.cal-day').forEach(function(c){ c.classList.remove('selected'); });
+    calState.selectedDate = null;
+    calState.selectedSlot = null;
+  });
+
+  renderCalendar();
+
+  /* ================= QUOTE FORM ================= */
+  var quoteForm = document.getElementById('quoteForm');
+  quoteForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fields = [
+      {id:'fName', test: function(v){ return v.trim().length>0; }},
+      {id:'fEmail', test: function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }},
+      {id:'fPhone', test: function(v){ return v.trim().length>=7; }},
+      {id:'fCoverage', test: function(v){ return v.trim().length>0; }}
+    ];
+    var valid = true;
+    fields.forEach(function(f){
+      var input = document.getElementById(f.id);
+      var wrap = input.closest('.form-field');
+      if(!f.test(input.value)){
+        wrap.classList.add('error');
+        valid = false;
+      } else {
+        wrap.classList.remove('error');
+      }
+    });
+    if(!valid) return;
+    document.getElementById('successName').textContent = document.getElementById('fName').value.trim().split(' ')[0];
+    quoteForm.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  });
+  document.getElementById('sendAnotherBtn').addEventListener('click', function(){
+    quoteForm.reset();
+    quoteForm.querySelectorAll('.form-field').forEach(function(f){ f.classList.remove('error'); });
+    quoteForm.style.display = 'block';
+    document.getElementById('formSuccess').classList.remove('show');
+  });
+
+  /* ================= CHATBOT ================= */
+  var chatLauncher = document.getElementById('chatLauncher');
+  var chatPanel = document.getElementById('chatPanel');
+  var chatBody = document.getElementById('chatBody');
+  var chatBadge = document.getElementById('chatBadge');
+  var chatInput = document.getElementById('chatInput');
+  var chatOpened = false;
+
+  var quickOptions = [
+    {label:'Get a Quote', key:'quote'},
+    {label:'Business Insurance', key:'business'},
+    {label:'Life Insurance', key:'life'},
+    {label:'Talk to a Human', key:'human'}
+  ];
+
+  function addMessage(text, sender){
+    var m = document.createElement('div');
+    m.className = 'msg ' + sender;
+    m.textContent = text;
+    chatBody.appendChild(m);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return m;
+  }
+
+  function addQuickReplies(options){
+    var wrap = document.createElement('div');
+    wrap.className = 'quick-replies';
+    options.forEach(function(opt){
+      var b = document.createElement('button');
+      b.className = 'qr-btn';
+      b.type = 'button';
+      b.textContent = opt.label;
+      b.addEventListener('click', function(){
+        addMessage(opt.label, 'user');
+        wrap.remove();
+        respondTo(opt.key, opt.label);
+      });
+      wrap.appendChild(b);
+    });
+    chatBody.appendChild(wrap);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function showTyping(callback){
+    var t = document.createElement('div');
+    t.className = 'typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    chatBody.appendChild(t);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    setTimeout(function(){
+      t.remove();
+      callback();
+    }, 650 + Math.random()*400);
+  }
+
+  var responses = {
+    quote: {text:"I can get that started right now. Scroll down to the quote form and tell us what you'd like covered — or I can take you there.", showBtn:'contact', btnLabel:'Go to Quote Form'},
+    business: {text:"Business & Commercial covers your operations, employees, and assets — general liability, property, and more. Want to see the full breakdown or start a quote?", quick:['quote','why']},
+    property: {text:"Property & Casualty covers your home, auto, and property against the unexpected. It's one of our core focus areas. Want to start a quote?", quick:['quote']},
+    life: {text:"We offer term, whole, and universal life plans, built around your family's goals. Want me to connect you with an advisor or start a quote?", quick:['quote','human']},
+    health: {text:"We offer individual, family, and Medicare supplement health plans. I can point you to a quote form to get specifics.", quick:['quote']},
+    annuity: {text:"Annuities turn your savings into reliable income — fixed, variable, or indexed. An advisor can help pick the right fit.", quick:['human','quote']},
+    disability: {text:"Disability insurance protects your income if illness or injury keeps you out of work. Want to see a quote?", quick:['quote']},
+    care: {text:"Long-Term Care coverage helps you plan ahead for extended care needs without draining your savings.", quick:['quote']},
+    umbrella: {text:"Umbrella & Excess Liability adds extra protection above your existing home, auto, or business policies.", quick:['quote']},
+    human: {text:"Happy to connect you with a licensed advisor. You can book a free call at a time that works for you.", showBtn:'book', btnLabel:'Book a Call'},
+    hours: {text:"I'm here 24/7 right in this chat. Our human advisors are available Monday–Friday, 8am–6pm CT."},
+    claim: {text:"Our claims team typically responds within 24 hours. Once you're a policyholder, your agent can give you a direct line."},
+    why: {text:"We're licensed experts, we move fast on claims, and every plan is built around you — not a generic template. Want to start a quote?", quick:['quote']},
+    default: {text:"I want to make sure I get you the right info — could you tell me a bit more, or pick one of these?", quick:['quote','business','life','human']}
+  };
+
+  var keywordMap = [
+    [/business|commercial|company|llc/, 'business'],
+    [/propert|casualty|home|house|auto|car/, 'property'],
+    [/life\s?insur|life plan|term life|whole life/, 'life'],
+    [/health|medicare|medical/, 'health'],
+    [/annuit/, 'annuity'],
+    [/disab/, 'disability'],
+    [/long.?term care|ltc/, 'care'],
+    [/umbrella|liability/, 'umbrella'],
+    [/quote|price|cost|estimate/, 'quote'],
+    [/agent|human|call|talk to|advisor|person/, 'human'],
+    [/hour|open|available/, 'hours'],
+    [/claim/, 'claim'],
+    [/why|trust|reason|choose you/, 'why']
+  ];
+
+  function respondTo(key, userText){
+    var r = responses[key] || responses.default;
+    showTyping(function(){
+      addMessage(r.text, 'bot');
+      if(r.showBtn){
+        var wrap = document.createElement('div');
+        wrap.className = 'quick-replies';
+        var b = document.createElement('button');
+        b.className = 'qr-btn';
+        b.type = 'button';
+        b.textContent = r.btnLabel;
+        b.addEventListener('click', function(){
+          document.getElementById(r.showBtn).scrollIntoView({behavior:'smooth'});
+          closeChat();
+        });
+        wrap.appendChild(b);
+        chatBody.appendChild(wrap);
+      }
+      if(r.quick){
+        var opts = r.quick.map(function(k){
+          var labelMap = {quote:'Get a Quote', why:'Why Ascension', human:'Talk to a Human'};
+          return {label: labelMap[k] || k, key:k};
+        });
+        addQuickReplies(opts);
+      }
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+  }
+
+  function handleUserText(text){
+    addMessage(text, 'user');
+    var matchedKey = 'default';
+    for(var i=0;i<keywordMap.length;i++){
+      if(keywordMap[i][0].test(text.toLowerCase())){ matchedKey = keywordMap[i][1]; break; }
+    }
+    respondTo(matchedKey, text);
+  }
+
+  function openChat(){
+    chatPanel.classList.add('open');
+    chatBadge.style.display = 'none';
+    if(!chatOpened){
+      chatOpened = true;
+      showTyping(function(){
+        addMessage("Hi, I'm Ava 👋 I can help you explore coverage, get a quote, or schedule a call with an agent. What are you looking for today?", 'bot');
+        addQuickReplies(quickOptions);
+      });
+    }
+  }
+  function closeChat(){ chatPanel.classList.remove('open'); }
+
+  chatLauncher.addEventListener('click', function(){
+    if(chatPanel.classList.contains('open')) closeChat(); else openChat();
+  });
+  document.getElementById('chatCloseBtn').addEventListener('click', closeChat);
+
+  document.getElementById('chatSendBtn').addEventListener('click', function(){
+    var v = chatInput.value.trim();
+    if(!v) return;
+    handleUserText(v);
+    chatInput.value = '';
+  });
+  chatInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      var v = chatInput.value.trim();
+      if(!v) return;
+      handleUserText(v);
+      chatInput.value = '';
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
